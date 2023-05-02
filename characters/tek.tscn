@@ -1,17 +1,24 @@
-[gd_scene load_steps=3 format=3 uid="uid://cth5jrgl4o8ot"]
+[gd_scene load_steps=4 format=3 uid="uid://cth5jrgl4o8ot"]
 
-[ext_resource type="Texture2D" uid="uid://cssxlmcpja3si" path="res://art/TeknoKundaAssets/sprites/tek.png" id="1_7e64a"]
+[ext_resource type="Texture2D" uid="uid://bwlm83v8dskn5" path="res://art/TeknoKundaAssets/sprites/tek_side.png" id="1_qw84c"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hndfm"]
-radius = 11.0
-height = 26.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_khrg3"]
+radius = 8.0
+height = 29.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q218d"]
+size = Vector2(24, 9.25)
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(11, 17)
-shape = SubResource("CapsuleShape2D_hndfm")
+position = Vector2(10, 15.5)
+shape = SubResource("CapsuleShape2D_khrg3")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(14, 24.375)
+shape = SubResource("RectangleShape2D_q218d")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_7e64a")
+texture = ExtResource("1_qw84c")
 centered = false

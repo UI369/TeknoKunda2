@@ -11,6 +11,8 @@ var animation_locked : bool = false
 var direction : Vector2 = Vector2.ZERO
 var was_in_air : bool = false
 
+
+
 @onready var animated_sprite : AnimatedSprite2D = $AnimatedSprite2D
 
 func _physics_process(delta):
