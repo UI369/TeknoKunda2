@@ -1,10 +1,12 @@
-[gd_scene load_steps=20 format=3 uid="uid://5irdb5qbcaab"]
+[gd_scene load_steps=23 format=3 uid="uid://5irdb5qbcaab"]
 
 [ext_resource type="Texture2D" uid="uid://t7m56505orhb" path="res://art/Legacy-Fantasy - High Forest 2.3/Assets1/Tiles.png" id="1_asn0g"]
+[ext_resource type="Script" path="res://levels/test_level.gd" id="1_oxv4h"]
 [ext_resource type="Texture2D" uid="uid://coefuol37423c" path="res://art/TeknoKundaAssets/sprites/bedroom_wall.png" id="3_wid1e"]
 [ext_resource type="Texture2D" uid="uid://bkctp2rhdvs1n" path="res://art/TeknoKundaAssets/sprites/bed.png" id="4_vou6o"]
-[ext_resource type="Texture2D" uid="uid://47grn56q812p" path="res://art/TeknoKundaAssets/sprites/computer.png" id="5_lxamy"]
+[ext_resource type="Texture2D" uid="uid://d42c5wdmhd15" path="res://art/TeknoKundaAssets/sprites/computer.png" id="5_lxamy"]
 [ext_resource type="Texture2D" uid="uid://04t0svod05d5" path="res://art/TeknoKundaAssets/sprites/door_left.png" id="6_o7rqj"]
+[ext_resource type="Script" path="res://levels/computer.gd" id="7_d02lk"]
 [ext_resource type="Texture2D" uid="uid://bq623lc5vv11v" path="res://art/TeknoKundaAssets/sprites/window.png" id="7_sqj11"]
 [ext_resource type="Texture2D" uid="uid://w8e0r3y47681" path="res://art/TeknoKundaAssets/sprites/curtain.png" id="8_xweol"]
 [ext_resource type="Texture2D" uid="uid://dbrjjhmqjm3c4" path="res://art/TeknoKundaAssets/sprites/livingroom_wall.png" id="9_kuhn2"]
@@ -1441,7 +1443,11 @@ size = Vector2(4, 81)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1c1sa"]
 size = Vector2(151.5, 6)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_opeiv"]
+radius = 0.8
+
 [node name="TestLevel" type="Node2D"]
+script = ExtResource("1_oxv4h")
 
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2(157, 764)
@@ -1469,12 +1475,6 @@ centered = false
 y_sort_enabled = true
 position = Vector2(14, 48)
 texture = ExtResource("4_vou6o")
-centered = false
-
-[node name="computer" type="Sprite2D" parent="Bedroom"]
-y_sort_enabled = true
-position = Vector2(73, 45)
-texture = ExtResource("5_lxamy")
 centered = false
 
 [node name="door" type="Sprite2D" parent="Bedroom"]
@@ -1506,6 +1506,21 @@ shape = SubResource("RectangleShape2D_o3gim")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Bedroom/floor"]
 position = Vector2(76.25, 78)
 shape = SubResource("RectangleShape2D_1c1sa")
+
+[node name="computer" type="Area2D" parent="Bedroom"]
+scale = Vector2(10, 10)
+script = ExtResource("7_d02lk")
+
+[node name="computer_collision" type="CollisionShape2D" parent="Bedroom/computer"]
+position = Vector2(8.6, 6.2)
+shape = SubResource("CircleShape2D_opeiv")
+
+[node name="computer_sprite" type="Sprite2D" parent="Bedroom/computer"]
+y_sort_enabled = true
+position = Vector2(7.3, 4.5)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("5_lxamy")
+centered = false
 
 [node name="Livingroom" type="Node2D" parent="."]
 
@@ -1589,3 +1604,9 @@ script = ExtResource("16_33y3i")
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Tek"]
 remote_path = NodePath("../../Camera2D")
+
+[connection signal="active_element_signal" from="Bedroom/computer" to="." method="_on_computer_active_element_signal"]
+[connection signal="body_entered" from="Bedroom/computer" to="Bedroom/computer" method="_on_body_entered"]
+[connection signal="body_exited" from="Bedroom/computer" to="Bedroom/computer" method="_on_body_exited"]
+[connection signal="inactive_element_signal" from="Bedroom/computer" to="." method="_on_computer_inactive_element_signal"]
+[connection signal="player_up_signal" from="Tek" to="." method="_on_tek_player_up_signal"]

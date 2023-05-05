@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d42c5wdmhd15"
-path="res://.godot/imported/computer.png-af56dc0c6bd29a03740be08d3c7b05d2.ctex"
+uid="uid://bbiu58x8bn8sf"
+path="res://.godot/imported/computer_hilite.png-f54d39a969dd028c531731dd39d13668.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/TeknoKundaAssets/sprites/computer.png"
-dest_files=["res://.godot/imported/computer.png-af56dc0c6bd29a03740be08d3c7b05d2.ctex"]
+source_file="res://art/TeknoKundaAssets/sprites/computer_hilite.png"
+dest_files=["res://.godot/imported/computer_hilite.png-f54d39a969dd028c531731dd39d13668.ctex"]
 
 [params]
 

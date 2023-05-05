@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d42c5wdmhd15"
-path="res://.godot/imported/computer.png-af56dc0c6bd29a03740be08d3c7b05d2.ctex"
+uid="uid://bog05pvn7b6c"
+path="res://.godot/imported/tek_front.png-d0ad9578d05d9efb45ee0efc7f3ee187.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/TeknoKundaAssets/sprites/computer.png"
-dest_files=["res://.godot/imported/computer.png-af56dc0c6bd29a03740be08d3c7b05d2.ctex"]
+source_file="res://art/TeknoKundaAssets/sprites/tek_front.png"
+dest_files=["res://.godot/imported/tek_front.png-d0ad9578d05d9efb45ee0efc7f3ee187.ctex"]
 
 [params]
 
