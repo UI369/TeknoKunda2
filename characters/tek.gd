@@ -19,6 +19,9 @@ var active_object : Area2D;
 
 signal player_up_signal()
 
+func _ready():
+	pass
+	
 # Have Tek look up, down, left, right
 func switch_texture():	
 	if(direction.x == -1):

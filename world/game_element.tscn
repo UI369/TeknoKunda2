@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://cd6miqhtloe44"]
+
+[ext_resource type="Script" path="res://world/game_element.gd" id="1_l1ouv"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_opeiv"]
+radius = 1.0
+
+[node name="game_element" type="Area2D"]
+position = Vector2(3, 2)
+scale = Vector2(10, 10)
+script = ExtResource("1_l1ouv")
+
+[node name="element_collision" type="CollisionShape2D" parent="."]
+position = Vector2(2.08165e-12, 2.08165e-12)
+shape = SubResource("CircleShape2D_opeiv")
+
+[node name="element_sprite" type="Sprite2D" parent="."]
+y_sort_enabled = true
+position = Vector2(2.08165e-12, 2.08165e-12)
+scale = Vector2(0.1, 0.1)
+centered = false

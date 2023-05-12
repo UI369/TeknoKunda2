@@ -1,14 +1,16 @@
-[gd_scene load_steps=23 format=3 uid="uid://5irdb5qbcaab"]
+[gd_scene load_steps=26 format=3 uid="uid://5irdb5qbcaab"]
 
 [ext_resource type="Texture2D" uid="uid://t7m56505orhb" path="res://art/Legacy-Fantasy - High Forest 2.3/Assets1/Tiles.png" id="1_asn0g"]
 [ext_resource type="Script" path="res://levels/test_level.gd" id="1_oxv4h"]
 [ext_resource type="Texture2D" uid="uid://coefuol37423c" path="res://art/TeknoKundaAssets/sprites/bedroom_wall.png" id="3_wid1e"]
 [ext_resource type="Texture2D" uid="uid://bkctp2rhdvs1n" path="res://art/TeknoKundaAssets/sprites/bed.png" id="4_vou6o"]
 [ext_resource type="Texture2D" uid="uid://d42c5wdmhd15" path="res://art/TeknoKundaAssets/sprites/computer.png" id="5_lxamy"]
+[ext_resource type="Texture2D" uid="uid://c6l0flaewhjlw" path="res://art/TeknoKundaAssets/sprites/bed_hilite.png" id="6_b8oxc"]
 [ext_resource type="Texture2D" uid="uid://04t0svod05d5" path="res://art/TeknoKundaAssets/sprites/door_left.png" id="6_o7rqj"]
-[ext_resource type="Script" path="res://levels/computer.gd" id="7_d02lk"]
 [ext_resource type="Texture2D" uid="uid://bq623lc5vv11v" path="res://art/TeknoKundaAssets/sprites/window.png" id="7_sqj11"]
+[ext_resource type="PackedScene" uid="uid://cd6miqhtloe44" path="res://world/game_element.tscn" id="8_3kjst"]
 [ext_resource type="Texture2D" uid="uid://w8e0r3y47681" path="res://art/TeknoKundaAssets/sprites/curtain.png" id="8_xweol"]
+[ext_resource type="Texture2D" uid="uid://bbiu58x8bn8sf" path="res://art/TeknoKundaAssets/sprites/computer_hilite.png" id="9_1jupo"]
 [ext_resource type="Texture2D" uid="uid://dbrjjhmqjm3c4" path="res://art/TeknoKundaAssets/sprites/livingroom_wall.png" id="9_kuhn2"]
 [ext_resource type="Texture2D" uid="uid://c2187xrc46ent" path="res://art/TeknoKundaAssets/sprites/door_right.png" id="10_n04ci"]
 [ext_resource type="Texture2D" uid="uid://copah8r7m0xrx" path="res://art/TeknoKundaAssets/sprites/end_table.png" id="11_nj0ru"]
@@ -1437,17 +1439,21 @@ texture = ExtResource("1_asn0g")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_yl8m8")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_31kaa"]
+size = Vector2(4.5, 0.9)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o3gim"]
 size = Vector2(4, 81)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1c1sa"]
 size = Vector2(151.5, 6)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_opeiv"]
-radius = 0.8
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rsn28"]
+size = Vector2(3.75987, 1.55983)
 
 [node name="TestLevel" type="Node2D"]
 script = ExtResource("1_oxv4h")
+node_paths = Array[NodePath]([NodePath("Bedroom/bed"), NodePath("Bedroom/computer"), NodePath("Livingroom/couch")])
 
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2(157, 764)
@@ -1457,7 +1463,7 @@ layer_0/name = "Ground"
 layer_0/tile_data = PackedInt32Array(-196615, 0, 1, -131079, 0, 2, -65543, 0, 3, -7, 0, 4, -196614, 65536, 1, -131078, 65536, 2, -65542, 65536, 2, -6, 65536, 3, -196613, 131072, 1, -131077, 131072, 2, -65541, 131072, 2, -5, 65536, 3, -196612, 196608, 1, -131076, 196608, 2, -65540, 65536, 2, -4, 131072, 3, -196611, 65536, 1, -131075, 65536, 2, -65539, 131072, 2, -3, 196608, 3, -196610, 131072, 1, -131074, 131072, 2, -65538, 196608, 2, -2, 65536, 3, -196609, 196608, 1, -131073, 196608, 2, -65537, 65536, 2, -1, 131072, 3, -262144, 131072, 1, -196608, 65536, 2, -131072, 131072, 2, -65536, 196608, 3, -262143, 196608, 1, -196607, 131072, 2, -131071, 196608, 2, -65535, 65536, 3, -262142, 65536, 1, -196606, 196608, 2, -131070, 65536, 2, -65534, 131072, 3, -262141, 131072, 1, -196605, 65536, 2, -131069, 131072, 2, -65533, 196608, 3, -262140, 196608, 1, -196604, 131072, 2, -131068, 196608, 2, -65532, 65536, 3, -262139, 131072, 1, -196603, 196608, 2, -131067, 65536, 2, -65531, 131072, 3, -262138, 196608, 1, -196602, 65536, 2, -131066, 131072, 2, -65530, 196608, 3, -262137, 65536, 1, -196601, 131072, 2, -131065, 196608, 2, -65529, 65536, 3, -262136, 131072, 1, -196600, 196608, 2, -131064, 65536, 2, -65528, 131072, 3, -262135, 196608, 1, -196599, 196608, 2, -131063, 131072, 2, -65527, 196608, 3, -262134, 131072, 1, -196598, 131072, 2, -131062, 196608, 2, -65526, 65536, 3, -262133, 196608, 1, -196597, 196608, 2, -131061, 196608, 2, -65525, 131072, 3, -262132, 262144, 1, -196596, 262144, 2, -131060, 262144, 2, -65524, 262144, 3, -262149, 196608, 0, -262148, 65536, 0, -262147, 131072, 0, -262146, 196608, 0, -262145, 65536, 0, -327680, 131072, 0, -327679, 196608, 0, -327678, 65536, 0, -327677, 131072, 0, -327676, 196608, 0, -327675, 65536, 0, -327674, 131072, 0, -327673, 196608, 0, -327672, 65536, 0, -327671, 131072, 0, -327670, 196608, 0, -327669, 65536, 0, -262151, 0, 0, -262150, 65536, 0, -327668, 262144, 0, 65533, 196608, 3, 65534, 65536, 3, 65535, 131072, 3, 131069, 196608, 3, 131070, 65536, 3, 131071, 131072, 3, 65536, 196608, 3, 65537, 65536, 3, 65538, 131072, 3, 131072, 196608, 3, 131073, 65536, 3, 131074, 131072, 3, 196608, 196608, 3, 196609, 65536, 3, 196610, 131072, 3, 262144, 196608, 3, 262145, 65536, 3, 262146, 131072, 3, 327680, 196608, 3, 327681, 65536, 3, 327682, 131072, 3, 65531, 131072, 3, 65532, 196608, 3, 131067, 131072, 3, 131068, 196608, 3, 196603, 131072, 3, 196604, 196608, 3, 196605, 196608, 3, 262139, 131072, 3, 262140, 196608, 3, 262141, 196608, 3, 327675, 131072, 3, 327676, 196608, 3, 327677, 196608, 3, 393211, 131072, 3, 393212, 196608, 3, 393213, 196608, 3, 458747, 131072, 3, 458748, 196608, 3, 458749, 196608, 3, 0, 196608, 3, 196606, 65536, 3, 196607, 131072, 3, 262142, 65536, 3, 262143, 131072, 3, 327678, 65536, 3, 327679, 131072, 3, 393214, 65536, 3, 393215, 131072, 3, 458750, 65536, 3, 458751, 131072, 3, 393216, 196608, 3, 1, 65536, 3, 2, 131072, 3, 3, 196608, 3, 65539, 196608, 3, 131075, 196608, 3, 196611, 196608, 3, 262147, 196608, 3, 327683, 196608, 3, 393217, 65536, 3, 393218, 131072, 3, 393219, 196608, 3, 4, 65536, 3, 5, 131072, 3, 6, 196608, 3, 65540, 65536, 3, 65541, 131072, 3, 65542, 196608, 3, 131076, 65536, 3, 131077, 131072, 3, 131078, 196608, 3, 196612, 65536, 3, 196613, 131072, 3, 196614, 196608, 3, 262148, 65536, 3, 262149, 131072, 3, 262150, 196608, 3, 327684, 65536, 3, 327685, 131072, 3, 327686, 196608, 3, 393220, 65536, 3, 393221, 131072, 3, 393222, 196608, 3, 7, 65536, 3, 8, 131072, 3, 9, 196608, 3, 65543, 65536, 3, 65544, 131072, 3, 65545, 196608, 3, 131079, 65536, 3, 131080, 131072, 3, 131081, 196608, 3, 196615, 65536, 3, 196616, 131072, 3, 196617, 196608, 3, 262151, 65536, 3, 262152, 131072, 3, 262153, 196608, 3, 327687, 65536, 3, 327688, 131072, 3, 327689, 196608, 3, 393223, 65536, 3, 393224, 131072, 3, 393225, 196608, 3, 10, 65536, 3, 11, 131072, 3, 65546, 65536, 3, 65547, 131072, 3, 131082, 65536, 3, 131083, 131072, 3, 196618, 65536, 3, 196619, 131072, 3, 262154, 65536, 3, 262155, 131072, 3, 327690, 65536, 3, 327691, 131072, 3, 393226, 65536, 3, 393227, 131072, 3, 12, 262144, 2, 65548, 262144, 3, 131084, 262144, 2, 196620, 262144, 3, 262156, 262144, 2, 327692, 262144, 3, 393228, 262144, 2, 458764, 262144, 4, 65529, 0, 2, 131065, 0, 3, 196601, 0, 2, 262137, 0, 3, 327673, 0, 2, 393209, 0, 3, 524283, 65536, 4, 524284, 131072, 4, 524285, 196608, 4, 524286, 65536, 4, 524287, 131072, 4, 458752, 196608, 4, 458753, 65536, 4, 458754, 131072, 4, 458755, 196608, 4, 458756, 65536, 4, 458757, 131072, 4, 458758, 196608, 4, 458759, 65536, 4, 458760, 131072, 4, 458761, 196608, 4, 458762, 65536, 4, 458763, 131072, 4, 458745, 0, 3, 524281, 0, 4, 524282, 65536, 4, 65530, 65536, 3, 131066, 65536, 3, 196602, 65536, 3, 262138, 65536, 3, 327674, 65536, 3, 393210, 65536, 3, 458746, 65536, 3)
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(5, 44)
+position = Vector2(105, 44)
 zoom = Vector2(3, 3)
 process_callback = 0
 position_smoothing_enabled = true
@@ -1469,12 +1475,6 @@ drag_vertical_enabled = true
 [node name="wall" type="Sprite2D" parent="Bedroom"]
 y_sort_enabled = true
 texture = ExtResource("3_wid1e")
-centered = false
-
-[node name="bed" type="Sprite2D" parent="Bedroom"]
-y_sort_enabled = true
-position = Vector2(14, 48)
-texture = ExtResource("4_vou6o")
 centered = false
 
 [node name="door" type="Sprite2D" parent="Bedroom"]
@@ -1495,6 +1495,35 @@ position = Vector2(106, 22)
 texture = ExtResource("8_xweol")
 centered = false
 
+[node name="bed" parent="Bedroom" instance=ExtResource("8_3kjst")]
+position = Vector2(30, 62)
+scale = Vector2(10, 9.95856)
+texture_hilite = ExtResource("6_b8oxc")
+texture = ExtResource("4_vou6o")
+metadata/_edit_group_ = true
+
+[node name="element_collision" parent="Bedroom/bed" index="0"]
+position = Vector2(0.749999, 0.45)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_31kaa")
+
+[node name="element_sprite" parent="Bedroom/bed" index="1"]
+position = Vector2(-1.7, -1.5)
+texture = ExtResource("4_vou6o")
+
+[node name="computer" parent="Bedroom" instance=ExtResource("8_3kjst")]
+position = Vector2(71, 43)
+texture_hilite = ExtResource("9_1jupo")
+texture = ExtResource("5_lxamy")
+id = 1
+metadata/_edit_group_ = true
+
+[node name="element_collision" parent="Bedroom/computer" index="0"]
+position = Vector2(1.4, 1.8)
+
+[node name="element_sprite" parent="Bedroom/computer" index="1"]
+texture = ExtResource("5_lxamy")
+
 [node name="wall_left" type="StaticBody2D" parent="Bedroom"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Bedroom/wall_left"]
@@ -1505,22 +1534,8 @@ shape = SubResource("RectangleShape2D_o3gim")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Bedroom/floor"]
 position = Vector2(76.25, 78)
+scale = Vector2(1, 1.01933)
 shape = SubResource("RectangleShape2D_1c1sa")
-
-[node name="computer" type="Area2D" parent="Bedroom"]
-scale = Vector2(10, 10)
-script = ExtResource("7_d02lk")
-
-[node name="computer_collision" type="CollisionShape2D" parent="Bedroom/computer"]
-position = Vector2(8.6, 6.2)
-shape = SubResource("CircleShape2D_opeiv")
-
-[node name="computer_sprite" type="Sprite2D" parent="Bedroom/computer"]
-y_sort_enabled = true
-position = Vector2(7.3, 4.5)
-scale = Vector2(0.1, 0.1)
-texture = ExtResource("5_lxamy")
-centered = false
 
 [node name="Livingroom" type="Node2D" parent="."]
 
@@ -1574,11 +1589,21 @@ position = Vector2(219, 17)
 texture = ExtResource("8_xweol")
 centered = false
 
-[node name="couch" type="Sprite2D" parent="Livingroom"]
-y_sort_enabled = true
-position = Vector2(187, 43)
+[node name="couch" parent="Livingroom" instance=ExtResource("8_3kjst")]
+position = Vector2(188, 44)
+texture_hilite = ExtResource("4_vou6o")
 texture = ExtResource("14_4vkco")
-centered = false
+id = 2
+metadata/_edit_group_ = true
+
+[node name="element_collision" parent="Livingroom/couch" index="0"]
+position = Vector2(2.7, 1.9)
+scale = Vector2(1.38303, 0.897534)
+shape = SubResource("RectangleShape2D_rsn28")
+metadata/_edit_group_ = true
+
+[node name="element_sprite" parent="Livingroom/couch" index="1"]
+texture = ExtResource("14_4vkco")
 
 [node name="door2" type="Sprite2D" parent="Livingroom"]
 y_sort_enabled = true
@@ -1599,14 +1624,14 @@ position = Vector2(306, 40.5)
 shape = SubResource("RectangleShape2D_o3gim")
 
 [node name="Tek" parent="." instance=ExtResource("15_5jp72")]
-position = Vector2(5, 44)
+position = Vector2(105, 44)
 script = ExtResource("16_33y3i")
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Tek"]
 remote_path = NodePath("../../Camera2D")
 
-[connection signal="active_element_signal" from="Bedroom/computer" to="." method="_on_computer_active_element_signal"]
-[connection signal="body_entered" from="Bedroom/computer" to="Bedroom/computer" method="_on_body_entered"]
-[connection signal="body_exited" from="Bedroom/computer" to="Bedroom/computer" method="_on_body_exited"]
-[connection signal="inactive_element_signal" from="Bedroom/computer" to="." method="_on_computer_inactive_element_signal"]
 [connection signal="player_up_signal" from="Tek" to="." method="_on_tek_player_up_signal"]
+
+[editable path="Bedroom/bed"]
+[editable path="Bedroom/computer"]
+[editable path="Livingroom/couch"]
