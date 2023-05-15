@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://c6l0flaewhjlw" path="res://art/TeknoKundaAssets/sprites/bed_hilite.png" id="6_b8oxc"]
 [ext_resource type="Texture2D" uid="uid://04t0svod05d5" path="res://art/TeknoKundaAssets/sprites/door_left.png" id="6_o7rqj"]
 [ext_resource type="Texture2D" uid="uid://bq623lc5vv11v" path="res://art/TeknoKundaAssets/sprites/window.png" id="7_sqj11"]
-[ext_resource type="PackedScene" uid="uid://cd6miqhtloe44" path="res://world/game_element.tscn" id="8_3kjst"]
+[ext_resource type="PackedScene" uid="uid://b13a6rive8x8f" path="res://world/game_element.tscn" id="8_3kjst"]
 [ext_resource type="Texture2D" uid="uid://w8e0r3y47681" path="res://art/TeknoKundaAssets/sprites/curtain.png" id="8_xweol"]
 [ext_resource type="Texture2D" uid="uid://bbiu58x8bn8sf" path="res://art/TeknoKundaAssets/sprites/computer_hilite.png" id="9_1jupo"]
 [ext_resource type="Texture2D" uid="uid://dbrjjhmqjm3c4" path="res://art/TeknoKundaAssets/sprites/livingroom_wall.png" id="9_kuhn2"]
@@ -1504,7 +1504,6 @@ metadata/_edit_group_ = true
 
 [node name="element_collision" parent="Bedroom/bed" index="0"]
 position = Vector2(0.749999, 0.45)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_31kaa")
 
 [node name="element_sprite" parent="Bedroom/bed" index="1"]
